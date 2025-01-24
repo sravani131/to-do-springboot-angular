@@ -28,3 +28,17 @@ IDE - Eclipse
 MYSQL 
 Spring Security 
 JSP
+
+Using Angular:
+Create a New Angular Project
+Open your terminal and run:
+ng new todo-list-app
+
+Navigate into the project directory:
+cd todo-list-app
+
+Serve application on local
+ng serve --port 4200
+
+
+
