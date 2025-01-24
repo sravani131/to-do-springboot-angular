@@ -1,32 +1,47 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Guid } from "guid-typescript";
-import { Todo } from "src/models/todo.model";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css']
 })
-export class AppComponent {
-  todos: Todo[] = []
+export class TodoComponent implements OnInit {
 
-  onSubmit(form: NgForm){
-    let todo = new Todo(Guid.create(), form.value.title, false);
-    this.todos.push(todo);
-    form.resetForm();
+  todoText: string = "";
+  todoList: any = [];
+  isTodoListEmpty = false;
+
+  constructor() { }
+
+  ngOnInit() {
+    this.isTodoListEmpty=true;
   }
 
-  onComplete(id: Guid){
-    let todo = this.todos.filter(x=>x.id === id)[0];
-    todo.isComplete = true;
+  onAddTodoText() {
+    if (this.todoText!=""){
+      console.log("adding the todoText - ", this.todoText);
+      let todoObj = {todoId: this.todoList.length, text: this.todoText, isCompleted: false, buttonText:"Done"};
+
+      this.todoList.push(todoObj);
+      this.todoText = "";
+      this.isTodoListEmpty=false;  
+    }
+  }
+  
+  onClearTodoText() {
+    console.log("clearing the todoList - ", this.todoList);
+    this.todoList=[];
+    this.todoText="";
+    this.isTodoListEmpty=true;
   }
 
-  onDelete(id: Guid){
-    let todo = this.todos.filter(x=>x.id === id)[0];
-    let index = this.todos.indexOf(todo,0);
-    if(index > -1){
-      this.todos.splice(index,1);
+  onCompletingTask(todoId:number){
+    if (this.todoList[todoId].isCompleted){
+      this.todoList[todoId].isCompleted = false;
+      this.todoList[todoId].buttonText = "Done";
+    }else{
+      this.todoList[todoId].isCompleted = true;
+      this.todoList[todoId].buttonText = "Undone";
     }
   }
 }
