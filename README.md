@@ -1,45 +1,30 @@
 # to-do-springboot-angular
 
 Todo List
-A small full-stack project in Spring Boot and Angular 9.
+Welcome to this Spring Boot To-Do List Application! This is a simple and efficient web-based to-do list application built using the Spring Boot framework. With this application, you can easily create, manage, and track your tasks and to-do items
 
+1.Clone the repository to your local machine:
+git clone https://github.com/your-username/spring-boot-todo-list.git
 
-Design and implement a simple API for Todo itens (CRUD)
-Implement security with JWT
-Front-end in Angular
-Connect both projects
-Installing
-Clone or download the repository:
+2.Navigate to the project directory:
+cd spring-boot-todo-list
 
-$ git clone https://github.com/sravani131/todolist-angular-springboot.git
-Running
-1 - Open two tabs in the Terminal: 1.1 - Run the service in the first tab:
+3.Build the project using Maven:
+mvn clean install
 
-Navigate to to-dolist-angular-springboot/backend/objectivesss-service/
-Run: mvn clean install
-1.2 - Run the Angular application in the second tab:
+4.Run the application using Maven:
+mvn spring-boot:run
+5.Open your web browser and navigate to http://localhost:8080 to access the application.
+Start adding your tasks!
 
-Navigate to to-dolist-angular-springboot/frontend/objectivesss/
-Run: ng serve
-2 - Open a browser:
-
-http://localhost:4200
-
-Built With
-Spring boot
-Project Lombok
-Swagger
-Angular
-JWT
+Tools and Technologies Used:
+Spring Boot - 2.0.4.RELEASE
+JDK - 1.8 or later
+Spring Framework
+Hibernate
 Maven
-
-Abstract Design
-1 - Application Service layer (serves the requests)
-
-Todos service
-2 - Data Storage layer
-
-Stores all todos
-3 - Front-end
-
-Allows user interaction with the application
+Spring Data JPA
+IDE - Eclipse 
+MYSQL 
+Spring Security 
+JSP
